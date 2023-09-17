@@ -7,7 +7,7 @@ function App() {
   
   useEffect(() => {
     fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.map((row) => <p>{row.name}</p>));
+      setCurrentTime(data.map((row) => <tr><td>{row.name}</td><td>{row.email}</td></tr>));
     });
   },[]);
 
@@ -26,7 +26,12 @@ function App() {
         >
           Learn React
         </a>
-        <p>The  current time is {listItems}</p>
+        <p>The  current users are </p>
+        <table>
+          <thead><th>Name</th><th>Email</th></thead>
+          {listItems}
+        </table>
+        
       </header>
     </div>
   );
