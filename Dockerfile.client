@@ -1,8 +1,8 @@
 # Build step #1: build the React front end
 FROM node:16-alpine as build-step
 WORKDIR /devops-front
-ENV PATH /devops-front/node_modules/.bin:$PATH
-COPY /devops-front/package.json ./
+ENV PATH ./devops-front/node_modules/.bin:$PATH
+COPY ./devops-front/package.json ./
 COPY ./devops-front/src ./src
 COPY ./devops-front/public ./public
 RUN yarn install
